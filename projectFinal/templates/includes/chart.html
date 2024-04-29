@@ -1,0 +1,57 @@
+<script>
+   
+$(document).ready(function() {
+
+	// Pie chart
+	var options = {
+        series: [{{student_count}}, {{lecture_count}}, {{project_count}}],
+        chart: {
+        width: '100%',
+		height: '150%',
+        type: 'pie',
+      },
+      labels: ['Students', 'Lectures', 'Projects'],
+      };
+
+      var chart = new ApexCharts(document.querySelector("#apexcharts-area"), options);
+      chart.render();
+
+	// Bar chart
+	if ($('#bar').length > 0) {
+	var optionsBar = {
+		chart: {
+			type: 'bar',
+			height: '150%',
+			width: '100%',
+			stacked: true,
+			toolbar: {
+				show: false
+			},
+		},
+		dataLabels: {
+			enabled: false
+		},
+		plotOptions: {
+			bar: {
+				columnWidth: '45%',
+			}
+		},
+		series: [{
+			name: "Male",
+			data: [{{student_gender_male}}],
+		}, {
+			name: "Female",
+			data: [{{student_gender_female}}],
+		}],
+		labels: ['Number of students'],
+		
+		
+
+	}
+  
+	var chartBar = new ApexCharts(document.querySelector('#bar'), optionsBar);
+	chartBar.render();
+	}
+  
+});
+</script>

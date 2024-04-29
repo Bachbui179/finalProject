@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="col-lg-12 bg-transparent">
+    <div class="card" style="background-color: #b9b9b9">
+        <div class="card-body">
+            <form method="post" action="{% url 'update_project' %}">
+                {% csrf_token %}
+                <div class="col-12">
+                    <h5 class="form-title"><span>Edit Project</span></h5>
+                </div>
+
+                {% include 'includes/messages.html' %}
+
+                <div class="col-sm-11">
+                    <div class="form-group">
+                        <label>Project Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="project_name"
+                            value="{% for i in project %}{{i.name}}{% endfor %}"
+                            required />
+                    </div>
+                </div>
+                <div class="col-sm-11">
+                    <div class="form-group">
+                        <input
+                        type="text"
+                        class="form-control"
+                        name="project_id"
+                        value="{% for i in project %}{{i.id}}{% endfor %}"
+                        hidden /> 
+                    </div>
+                </div>
+                <div class="col-sm-11">
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea
+                            class="form-control"
+                            name="description"
+                            value="{% for i in project %}{{i.description}}{% endfor %}">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary">
+                        Update Project
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+    

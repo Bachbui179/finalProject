@@ -1,0 +1,13 @@
+{% load static %}
+<div class="container">
+    <h1 class="text-white text-center">
+        Student Management <br>&<br> Allocation System
+    </h1>
+    {% if user.user_type == '1'%}
+    <p class="lead text-white text-center">Welcome to the admin panel</p>
+    {% elif user.user_type == '2' %}
+    <p class="lead text-white text-center">Welcome to the teacher panel</p>
+    {% elif user.user_type == '3' %}
+    <p class="lead text-white text-center">Welcome to the student panel</p>
+    {% endif %}
+</div>

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container h-100 row align-content-center">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Alllocation Status</h5>
+            {% include 'includes/messages.html' %}
+            <p class="card-text">
+              <span class="font-weight-bold">Status: {{status}}</span> 
+            </p>
+            {% if status == 'Not Ready' %}
+              <button type="button" class="btn btn-primary disabled">Allocate</button>
+            {% elif status == 'Ready' %}
+              <a href="{% url 'result' %}" type="button" class="btn btn-primary">Allocate</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}
+    

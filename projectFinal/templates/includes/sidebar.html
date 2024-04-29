@@ -1,0 +1,387 @@
+{% load static %}
+
+{% if user.user_type == '1' %}
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+    <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a
+            href="/"
+            class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 d-none d-sm-inline"
+                >Student Management & Allocation System</span
+            >
+        </a>
+        <ul
+            class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            id="menu">
+            <li>
+                <a
+                    href="{% url 'admin_home' %}"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <i class="fa-solid fa-table-columns"></i>
+                    <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a
+                    href="#submenu1"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <i class="fa-solid fa-chalkboard-user fa-sm"></i>
+                    <span class="ms-1 d-none d-sm-inline">Lecture</span></a
+                >
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu1"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'view_lecture' %}" class="nav-link px-0"
+                            ><span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Lecture View</span
+                            ></a
+                        >
+                    </li>
+                    <li>
+                        <a href="{% url 'add_lecture' %}" class="nav-link px-0"
+                            ><span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Lecture Add</span
+                            ></a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a
+                    href="#submenu2"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <i class="fa-solid fa-user-graduate fa-lg"></i>
+                    <span class="ms-1 d-none d-sm-inline">Students</span>
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu2"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a
+                            href="{% url 'view_student' %}"
+                            class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Student View</span
+                            >
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'add_student' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Student Add</span
+                            >
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a
+                    href="#submenu3"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle">
+                    <i class="fa-solid fa-tarp" style="color: white;"></i>
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Projects</span
+                    >
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu3"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'view_project' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Project View</span
+                            ></a
+                        >
+                    </li>
+                    <li>
+                        <a href="{% url 'add_project' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Project Add</span
+                            ></a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a
+                    href="#submenu4"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle">
+                    <i class="fa-solid fa-gears" style="color: white;"></i>
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Allocation</span
+                    >
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu4"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'allocate_process' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Start Allocation Process</span
+                            ></a
+                        >
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        {% include 'includes/user_display.html'%}
+    </div>
+</div>
+{% elif user.user_type == '2' %}
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+    <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a
+            href="/"
+            class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 d-none d-sm-inline"
+                >Student Management & Allocation System</span
+            >
+        </a>
+        <ul
+            class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            id="menu">
+            <li>
+                <a
+                    href="{% url 'lecture_home' %}"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <img
+                        src="{% static 'asset/images/icons/dashboard.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                </a>
+            </li>
+            
+            <li>
+                <a
+                    href="#submenu2"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <img
+                        src="{% static 'asset/images/icons/student.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span class="ms-1 d-none d-sm-inline">Students</span>
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu2"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a
+                            href="{% url 'lecture_view_student' %}"
+                            class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Student View</span
+                            >
+                        </a>
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a
+                    href="#submenu3"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle">
+                    <img
+                        src="{% static 'asset/images/icons/project.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Projects</span
+                    >
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu3"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'lecture_view_project' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Project View</span
+                            ></a
+                        >
+                    </li>
+                    
+                </ul>
+            </li>
+            <li>
+                <a
+                    href="#submenu4"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle">
+                    <img
+                        src="{% static 'asset/images/icons/project.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Allocation</span
+                    >
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu4"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'submit_preference' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Submission Form</span
+                            ></a
+                        >
+                    </li>
+                    
+                </ul>
+            </li>
+        </ul>
+        {% include 'includes/user_display.html'%}
+    </div>
+</div>
+
+{% else %}
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+    <div
+        class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <a
+            href="/"
+            class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <span class="fs-5 d-none d-sm-inline"
+                >Student Management & Allocation System</span
+            >
+        </a>
+        <ul
+            class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start"
+            id="menu">
+            <li>
+                <a
+                    href="{% url 'student_home' %}"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <img
+                        src="{% static 'asset/images/icons/dashboard.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a
+                    href="#submenu1"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle text-white text-decoration-none">
+                    <img
+                        src="{% static 'asset/images/icons/teacher.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span class="ms-1 d-none d-sm-inline">Lecture</span></a
+                >
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu1"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'student_view_lecture' %}" class="nav-link px-0"
+                            ><span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Lecture View</span
+                            ></a
+                        >
+                    </li>
+                </ul>
+            </li>
+            
+            <li>
+                <a
+                    href="#submenu3"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle">
+                    <img
+                        src="{% static 'asset/images/icons/project.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Projects</span
+                    >
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu3"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'student_view_project' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Project View</span
+                            ></a
+                        >
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a
+                    href="#submenu4"
+                    data-bs-toggle="collapse"
+                    class="nav-link px-0 align-middle">
+                    <img
+                        src="{% static 'asset/images/icons/project.png' %}"
+                        alt="Logo"
+                        width="25"
+                        height="25" />
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Allocation</span
+                    >
+                </a>
+                <ul
+                    class="collapse nav flex-column ms-4"
+                    id="submenu4"
+                    data-bs-parent="#menu">
+                    <li class="w-100">
+                        <a href="{% url 'student_submit_preference' %}" class="nav-link px-0">
+                            <span
+                                class="d-none d-sm-inline text-white text-decoration-none"
+                                >Submission Form</span
+                            ></a
+                        >
+                    </li>
+                    
+                </ul>
+            </li>
+        </ul>
+        {% include 'includes/user_display.html'%}
+    </div>
+</div>
+
+{% endif %}

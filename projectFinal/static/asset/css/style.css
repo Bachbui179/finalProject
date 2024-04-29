@@ -1,0 +1,8 @@
+/* background image */
+.bg{
+	background-image: url('/static/asset/images/background.jpg');
+	min-height: 100vh;
+	max-height: 100vh;
+	overflow: hidden;
+	overflow-y: scroll;
+}

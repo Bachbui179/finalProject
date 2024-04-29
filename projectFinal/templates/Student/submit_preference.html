@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block content %}
+<div class="col-lg-12 bg-transparent">
+    <div class="card" style="background-color: #b9b9b9">
+        <div class="card-body">
+            {% include 'includes/messages.html' %}
+            
+            <form method="post" action="#">
+                {% csrf_token %}
+                {% for i in lecture %}
+                <div class="col-sm-11">
+                    <label>Lecture</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="lecture_name"
+                        value="{{i.admin.first_name}} {{i.admin.last_name}}"
+                        readonly />
+                </div>
+                <div class="col-sm-11">
+                    <label>Rate this lecture from 1 to {{lecture_count}}</label>
+                    <select class="form-control select-preference" name="preferences" required>
+                        <option value="" selected disabled hidden>
+                            Preferences
+                        </option>
+                        {% for j in n %}
+                        <option value="{{ j|add:1 }}">{{ j|add:1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <br>
+                {% endfor %}
+                <br />
+                <!-- Add more preferences as needed -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    // Function to update options based on selected values
+    function updateOptions() {
+        // Initialize an empty array to store selected values
+        var selectedValues = [];
+        // Loop through each select field and add selected values to the array
+        $('.preference-select').each(function () {
+            var selectedValue = $(this).val();
+            if (selectedValue !== "") {
+                selectedValues.push(selectedValue);
+            }
+        });
+        // Disable options that are already selected
+        $('.preference-select').each(function () {
+            var currentSelect = $(this);
+            currentSelect.find('option').prop('disabled', false);
+            selectedValues.forEach(function (value) {
+                currentSelect.find('option[value="' + value + '"]').prop('disabled', true);
+            });
+        });
+    }
+
+    // Call updateOptions on page load
+    $(document).ready(function () {
+        updateOptions();
+    });
+
+    // Update options whenever a selection is changed
+    $('.preference-select').change(function () {
+        updateOptions();
+    });
+</script>
+{% endblock content %}
