@@ -6,9 +6,11 @@ sudo apt-get install python3-venv -y
 python3 -m venv env
 source env/bin/activate
 
-sudo apt-get install python3-dev default-libmysqlclient-dev build-essential
-sudo apt install pkg-config
+sudo apt-get install python3-dev default-libmysqlclient-dev build-essential -y
+sudo apt install pkg-config -y
 pip install mysqlclient
+pip install django
+pip install python-dotenv
 
 #go to files that contain manage.py
 cd projectFinal 
