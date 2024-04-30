@@ -2,7 +2,7 @@ Linux deploy
 sudo apt-get update
 git clone https://github.com/Bachbui179/finalProject
 sudo apt install python3-pip -y
-apt-get install python3-venv.
+sudo apt-get install python3-venv -y
 python3 -m venv env
 source env/bin/activate
 
