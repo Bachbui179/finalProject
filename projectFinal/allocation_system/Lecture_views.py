@@ -68,8 +68,11 @@ def SUBMIT_PREFERENCE(request):
             messages.error(request, 'Students can not have the same position!')
             return redirect('submit_preference')
         else: 
-            submit_preference = student_name
-            
+            sorted_combined = sorted(
+                list(zip(preferences, student_name)), 
+                key=lambda x: int(x[0])
+                )
+            submit_preference = [lecture for _, lecture in sorted_combined]
             lecture = Lecture.objects.get(admin=request.user)
             
             lecture.preference = submit_preference

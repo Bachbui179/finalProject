@@ -44,6 +44,8 @@ def VIEW_PROJECT(request):
     }
     return render(request, 'Student/view_project.html', context)
 
+@login_required(login_url='/')
+@role_required(['3'])
 def SUBMIT_PREFERENCE(request):
     lecture = Lecture.objects.all()
     lecture_count = Lecture.objects.all().count()
@@ -65,10 +67,12 @@ def SUBMIT_PREFERENCE(request):
             messages.error(request, 'Lectures can not have the same position!')
             return redirect('student_submit_preference')
         else: 
-            submit_preference = lecture_name
-            
+            sorted_combined = sorted(
+                list(zip(preferences, lecture_name)), 
+                key=lambda x: int(x[0])
+                )
+            submit_preference = [lecture for _, lecture in sorted_combined]
             student = Student.objects.get(admin=request.user)
-            
             student.preference = submit_preference
             student.save()
         
