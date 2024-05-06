@@ -51,6 +51,7 @@ urlpatterns = [
     path('Lecture/Student/View', Lecture_views.VIEW_STUDENT,name='lecture_view_student'),
     path('Lecture/Project/View', Lecture_views.VIEW_PROJECT, name = 'lecture_view_project'),
     path('Lecture/SubmitForm', Lecture_views.SUBMIT_PREFERENCE, name = 'submit_preference'),
+    path('Lecture/Assigned', Lecture_views.ASSIGNED, name = 'lecture_view_assigned'),
     
     #Student path/
     path('Student/Home', Student_views.HOME, name='student_home'),

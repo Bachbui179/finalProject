@@ -43,13 +43,15 @@ def doLogout(request):
 
 @login_required(login_url="/")
 def PROFILE(request):
-    user = CustomUser.objects.get(id=request.user.id)
-    
-
-    context = {
-        "user": user,
-    }
-    return render(request, "profile.html", context)
+    try:
+        user = CustomUser.objects.get(id=request.user.id)
+        context = {
+            "user": user,
+        }
+        return render(request, "profile.html", context)
+    except:
+        messages.error(request, 'User not found')
+        render(request, '404_Not_Found.html')
 
 @login_required(login_url="/")
 def PROFILE_UPDATE(request):

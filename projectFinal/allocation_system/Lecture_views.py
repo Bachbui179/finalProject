@@ -4,7 +4,6 @@ from django.contrib import messages
 from application.models import Project, CustomUser, Student, Lecture
 from allocation_system.decorators import role_required
 
-@login_required(login_url='/')
 @role_required(['2'])
 def HOME(request):
     student_count = Student.objects.all().count()
@@ -23,7 +22,6 @@ def HOME(request):
     }
     return render(request, 'Lecture/home.html', context)
 
-@login_required(login_url='/')
 @role_required(['2'])
 def VIEW_STUDENT(request):
     student = Student.objects.all()
@@ -43,7 +41,6 @@ def VIEW_PROJECT(request):
     }
     return render(request, 'Lecture/view_project.html', context)
 
-@login_required(login_url='/')
 @role_required(['2'])
 def SUBMIT_PREFERENCE(request):
     student = Student.objects.all()
@@ -76,6 +73,7 @@ def SUBMIT_PREFERENCE(request):
             lecture = Lecture.objects.get(admin=request.user)
             
             lecture.preference = submit_preference
+            messages.success(request,'Submissions completed')
             lecture.save()
             
     context = {
@@ -85,3 +83,18 @@ def SUBMIT_PREFERENCE(request):
         }
     
     return render(request, 'Lecture/submit_preference.html', context)
+
+@role_required(['2'])
+def ASSIGNED(request):
+    lecture = Lecture.objects.get(admin=request.user)
+    
+    content = {
+       'students_assigned': students_assigned,
+    }
+    
+    students_assigned = Student.objects.filter(lecture_assigned=lecture)
+    if students_assigned == []:
+        messages.error(request,'No student(s) assigned yet! Please wait until administrator start allocation process!')
+        return render(request, 'view_assigned.html')
+    else:
+        return render(request, 'Lecture/view_assigned.html', content)

@@ -24,11 +24,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
-    list_display = ('get_id', 'get_username', 'project_assigned','lecture_assigned', 'get_email', 'preference', 'updated_at')
-    
-    def get_id(self, obj):
-        return obj.admin.id 
-    get_id.short_description = 'id'
+    list_display = ('get_username', 'project_assigned','lecture_assigned', 'get_email', 'preference', 'updated_at')
     
     def get_username(self, obj):
         return obj.admin.username

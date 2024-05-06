@@ -164,11 +164,7 @@
                 <a
                     href="{% url 'lecture_home' %}"
                     class="nav-link px-0 align-middle text-white text-decoration-none">
-                    <img
-                        src="{% static 'asset/images/icons/dashboard.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-table-columns"></i>
                     <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
             </li>
@@ -178,11 +174,7 @@
                     href="#submenu2"
                     data-bs-toggle="collapse"
                     class="nav-link px-0 align-middle text-white text-decoration-none">
-                    <img
-                        src="{% static 'asset/images/icons/student.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-user-graduate fa-lg"></i>
                     <span class="ms-1 d-none d-sm-inline">Students</span>
                 </a>
                 <ul
@@ -207,11 +199,7 @@
                     href="#submenu3"
                     data-bs-toggle="collapse"
                     class="nav-link px-0 align-middle">
-                    <img
-                        src="{% static 'asset/images/icons/project.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-tarp" style="color: white;"></i>
                     <span
                         class="ms-1 d-none d-sm-inline text-white text-decoration-none"
                         >Projects</span
@@ -237,11 +225,7 @@
                     href="#submenu4"
                     data-bs-toggle="collapse"
                     class="nav-link px-0 align-middle">
-                    <img
-                        src="{% static 'asset/images/icons/project.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-gears" style="color: white;"></i>
                     <span
                         class="ms-1 d-none d-sm-inline text-white text-decoration-none"
                         >Allocation</span
@@ -256,11 +240,21 @@
                             <span
                                 class="d-none d-sm-inline text-white text-decoration-none"
                                 >Submission Form</span
-                            ></a
-                        >
+                            ></a>
                     </li>
                     
                 </ul>
+            </li>
+            <li>
+                <a
+                    href="{% url 'lecture_view_assigned' %}"
+                    class="nav-link px-0 align-middle">
+                    <i class="fa-solid fa-tarp" style="color: white;"></i>
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Assigned Students</span>
+                </a>
+                
             </li>
         </ul>
         {% include 'includes/user_display.html'%}
@@ -285,11 +279,7 @@
                 <a
                     href="{% url 'student_home' %}"
                     class="nav-link px-0 align-middle text-white text-decoration-none">
-                    <img
-                        src="{% static 'asset/images/icons/dashboard.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-table-columns"></i>
                     <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                 </a>
             </li>
@@ -298,11 +288,7 @@
                     href="#submenu1"
                     data-bs-toggle="collapse"
                     class="nav-link px-0 align-middle text-white text-decoration-none">
-                    <img
-                        src="{% static 'asset/images/icons/teacher.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-chalkboard-user fa-sm"></i>
                     <span class="ms-1 d-none d-sm-inline">Lecture</span></a
                 >
                 <ul
@@ -325,11 +311,7 @@
                     href="#submenu3"
                     data-bs-toggle="collapse"
                     class="nav-link px-0 align-middle">
-                    <img
-                        src="{% static 'asset/images/icons/project.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-tarp" style="color: white;"></i>
                     <span
                         class="ms-1 d-none d-sm-inline text-white text-decoration-none"
                         >Projects</span
@@ -354,11 +336,7 @@
                     href="#submenu4"
                     data-bs-toggle="collapse"
                     class="nav-link px-0 align-middle">
-                    <img
-                        src="{% static 'asset/images/icons/project.png' %}"
-                        alt="Logo"
-                        width="25"
-                        height="25" />
+                    <i class="fa-solid fa-gears" style="color: white;"></i>
                     <span
                         class="ms-1 d-none d-sm-inline text-white text-decoration-none"
                         >Allocation</span
