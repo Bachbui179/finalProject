@@ -354,8 +354,18 @@
                             ></a
                         >
                     </li>
-                    
                 </ul>
+            </li>
+            <li>
+                <a
+                    href="{% url 'student_view_assigned' %}"
+                    class="nav-link px-0 align-middle">
+                    <i class="fa-solid fa-tarp" style="color: white;"></i>
+                    <span
+                        class="ms-1 d-none d-sm-inline text-white text-decoration-none"
+                        >Assigned Lecture</span>
+                </a>
+                
             </li>
         </ul>
         {% include 'includes/user_display.html'%}

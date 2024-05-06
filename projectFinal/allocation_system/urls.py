@@ -58,6 +58,7 @@ urlpatterns = [
     path('Student/Lecture/View', Student_views.VIEW_LECTURE, name = 'student_view_lecture'),
     path('Student/Project/View', Student_views.VIEW_PROJECT, name = 'student_view_project'),
     path('Student/SubmitForm', Student_views.SUBMIT_PREFERENCE, name = 'student_submit_preference'),
+    path('Student/Assigned', Student_views.ASSIGNED, name = 'student_view_assigned'),
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

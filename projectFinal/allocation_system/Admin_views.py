@@ -418,7 +418,6 @@ def ALLOCATE(request):
             name_match = (stable_matching(students_preference, lectures_preference))
             
             assigned_pairs_email = {student_info[student_name]: lecture_info[lecture_name] for student_name, lecture_name in name_match.items()}
-            print(assigned_pairs_email)  
             for student_email, lecture_email in assigned_pairs_email.items():
             
                 # Get the student instance corresponding to the email
@@ -427,9 +426,6 @@ def ALLOCATE(request):
                 # Get the lecture instance corresponding to the email
                 lecture = Lecture.objects.get(admin__email=lecture_email)
                 
-                # assigned_lecture = lecture.full_name
-                
-                print(lecture)
                 # Assign the lecture full name to the student
                 student.lecture_assigned = lecture
                 # print(student.lecture_assigned)

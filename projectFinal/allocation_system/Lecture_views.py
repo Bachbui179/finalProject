@@ -88,11 +88,13 @@ def SUBMIT_PREFERENCE(request):
 def ASSIGNED(request):
     lecture = Lecture.objects.get(admin=request.user)
     
+    
+    
+    students_assigned = Student.objects.filter(lecture_assigned=lecture)
+    print(students_assigned)
     content = {
        'students_assigned': students_assigned,
     }
-    
-    students_assigned = Student.objects.filter(lecture_assigned=lecture)
     if students_assigned == []:
         messages.error(request,'No student(s) assigned yet! Please wait until administrator start allocation process!')
         return render(request, 'view_assigned.html')

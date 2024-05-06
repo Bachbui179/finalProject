@@ -5,12 +5,12 @@
     <div class="page-header">
         <div class="row align-items-center">
             <div class="col">
-                <h3 class="page-title text-white">Assigned Students</h3>
+                <h3 class="page-title text-white">Assigned Lecture</h3>
                 <ul class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a class= "text-white text-decoration-none" href="{% url 'lecture_home' %}">Dashboard</a>
+                        <a class= "text-white text-decoration-none" href="{% url 'student_home' %}">Dashboard</a>
                     </li>
-                    <li class="breadcrumb-item active text-white">Assigned Students</li>
+                    <li class="breadcrumb-item active text-white">Assigned Lecture</li>
                 </ul>
             </div>
         </div>
@@ -28,17 +28,15 @@
                                 <tr>
                                     <th>Name</th>
                                     <th>Gender</th>
-                                    <th>Project</th>
+                                    <th>Email</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {% for i in students_assigned %}
                                 <tr>
-                                    <td>{{i.full_name}}</td>
-                                    <td>{{i.gender}}</td>
-                                    <td>{{i.project_assigned}}</td>
+                                    <td>{{assigned_lecture.full_name}}</td>
+                                    <td>{{assigned_lecture.gender}}</td>
+                                    <td>{{assigned_lecture.email}}</td>
                                 </tr>
-                                {% endfor %}
                             </tbody>
                         </table>
                     </div>

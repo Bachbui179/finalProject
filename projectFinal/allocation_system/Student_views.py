@@ -83,3 +83,16 @@ def SUBMIT_PREFERENCE(request):
         }
     
     return render(request, 'Student/submit_preference.html', context)
+
+@role_required(['3'])
+def ASSIGNED(request):
+    student = Student.objects.get(admin=request.user)
+    assigned_lecture = Lecture.objects.get(admin__username=student.lecture_assigned)
+    content = {
+        'assigned_lecture': assigned_lecture,
+    }
+    if assigned_lecture == []:
+        messages.error(request,'No lecture assigned yet! Please wait until administrator start allocation process!')
+        return render(request, 'Student/student_view_assigned.html')
+    else:
+        return render(request, 'Student/student_view_assigned.html',content)
